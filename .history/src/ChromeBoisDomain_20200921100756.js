@@ -10,7 +10,7 @@ export default class ChromeBoisDomain extends Component {
      * function that has been provided and is already imported
      * (`drawChromeBoiAtCoords` expects two arguments, an x and a y coordinate)
      */
-    drawChromeBoiAtCoords(event.clientX, event.clientY)
+    drawChromeBoiAtCoords(event.nativeEvent.offsetX, event.nativeEvent.offsetY)
 
   }
   
@@ -30,15 +30,10 @@ export default class ChromeBoisDomain extends Component {
    */
 
   handleKey = (e) =>{
-    switch (e.key) {
-      case 'a':
-        resize('+');
-        break;
-      case 's':
-        resize('-');
-        break;
-      default:
-        break;
+    if (e.key === 'a'){
+      resize('+')
+    } else if (e.key !== 's') { 
+      resize('-')
     }
 
   }
@@ -48,7 +43,6 @@ export default class ChromeBoisDomain extends Component {
       <canvas 
         onMouseMove={this.handleMouseMove}
         onClick={this.handelClick}
-        onKeyDown={this.handleKey}
         width='900'
         height='600'
         tabIndex="0">

@@ -10,7 +10,7 @@ export default class ChromeBoisDomain extends Component {
      * function that has been provided and is already imported
      * (`drawChromeBoiAtCoords` expects two arguments, an x and a y coordinate)
      */
-    drawChromeBoiAtCoords(event.clientX, event.clientY)
+    drawChromeBoiAtCoords(event.nativeEvent.X, event.nativeEvent.Y)
 
   }
   
@@ -30,6 +30,7 @@ export default class ChromeBoisDomain extends Component {
    */
 
   handleKey = (e) =>{
+    console.log(e.key)
     switch (e.key) {
       case 'a':
         resize('+');
